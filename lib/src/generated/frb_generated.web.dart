@@ -15,8 +15,8 @@ import 'dart:convert';
 import 'frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated_web.dart';
 
-abstract class CApiApiImplPlatform extends BaseApiImpl<CApiWire> {
-  CApiApiImplPlatform({
+abstract class BdkCoreApiImplPlatform extends BaseApiImpl<BdkCoreWire> {
+  BdkCoreApiImplPlatform({
     required super.handler,
     required super.wire,
     required super.generalizedFrbRustBinding,
@@ -2547,8 +2547,8 @@ abstract class CApiApiImplPlatform extends BaseApiImpl<CApiWire> {
 
 // Section: wire_class
 
-class CApiWire implements BaseWire {
-  CApiWire.fromExternalLibrary(ExternalLibrary lib);
+class BdkCoreWire implements BaseWire {
+  BdkCoreWire.fromExternalLibrary(ExternalLibrary lib);
 
   void wire_bdk_blockchain_broadcast(NativePortType port_, List<dynamic> that,
           List<dynamic> transaction) =>
@@ -3018,16 +3018,16 @@ class CApiWire implements BaseWire {
 }
 
 @JS('wasm_bindgen')
-external CApiWasmModule get wasmModule;
+external BdkCoreWasmModule get wasmModule;
 
 @JS()
 @anonymous
-class CApiWasmModule implements WasmModule {
+class BdkCoreWasmModule implements WasmModule {
   @override
   external Object /* Promise */ call([String? moduleName]);
 
   @override
-  external CApiWasmModule bind(dynamic thisArg, String moduleName);
+  external BdkCoreWasmModule bind(dynamic thisArg, String moduleName);
 
   external void wire_bdk_blockchain_broadcast(
       NativePortType port_, List<dynamic> that, List<dynamic> transaction);

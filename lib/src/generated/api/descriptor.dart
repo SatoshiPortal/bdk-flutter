@@ -21,11 +21,11 @@ class ExtendedDescriptor extends RustOpaque {
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount:
-        CApi.instance.api.rust_arc_increment_strong_count_ExtendedDescriptor,
+        BdkCore.instance.api.rust_arc_increment_strong_count_ExtendedDescriptor,
     rustArcDecrementStrongCount:
-        CApi.instance.api.rust_arc_decrement_strong_count_ExtendedDescriptor,
-    rustArcDecrementStrongCountPtr:
-        CApi.instance.api.rust_arc_decrement_strong_count_ExtendedDescriptorPtr,
+        BdkCore.instance.api.rust_arc_decrement_strong_count_ExtendedDescriptor,
+    rustArcDecrementStrongCountPtr: BdkCore
+        .instance.api.rust_arc_decrement_strong_count_ExtendedDescriptorPtr,
   );
 }
 
@@ -39,11 +39,11 @@ class KeysDescriptorPublicKey extends RustOpaque {
       : super.sseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: CApi
+    rustArcIncrementStrongCount: BdkCore
         .instance.api.rust_arc_increment_strong_count_KeysDescriptorPublicKey,
-    rustArcDecrementStrongCount: CApi
+    rustArcDecrementStrongCount: BdkCore
         .instance.api.rust_arc_decrement_strong_count_KeysDescriptorPublicKey,
-    rustArcDecrementStrongCountPtr: CApi.instance.api
+    rustArcDecrementStrongCountPtr: BdkCore.instance.api
         .rust_arc_decrement_strong_count_KeysDescriptorPublicKeyPtr,
   );
 }
@@ -58,11 +58,11 @@ class KeysDescriptorSecretKey extends RustOpaque {
       : super.sseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: CApi
+    rustArcIncrementStrongCount: BdkCore
         .instance.api.rust_arc_increment_strong_count_KeysDescriptorSecretKey,
-    rustArcDecrementStrongCount: CApi
+    rustArcDecrementStrongCount: BdkCore
         .instance.api.rust_arc_decrement_strong_count_KeysDescriptorSecretKey,
-    rustArcDecrementStrongCountPtr: CApi.instance.api
+    rustArcDecrementStrongCountPtr: BdkCore.instance.api
         .rust_arc_decrement_strong_count_KeysDescriptorSecretKeyPtr,
   );
 }
@@ -78,11 +78,11 @@ class KeysKeyMap extends RustOpaque {
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount:
-        CApi.instance.api.rust_arc_increment_strong_count_KeysKeyMap,
+        BdkCore.instance.api.rust_arc_increment_strong_count_KeysKeyMap,
     rustArcDecrementStrongCount:
-        CApi.instance.api.rust_arc_decrement_strong_count_KeysKeyMap,
+        BdkCore.instance.api.rust_arc_decrement_strong_count_KeysKeyMap,
     rustArcDecrementStrongCountPtr:
-        CApi.instance.api.rust_arc_decrement_strong_count_KeysKeyMapPtr,
+        BdkCore.instance.api.rust_arc_decrement_strong_count_KeysKeyMapPtr,
   );
 }
 
@@ -96,12 +96,12 @@ class BdkDescriptor {
   });
 
   Future<String> asString({dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorAsString(that: this, hint: hint);
+      BdkCore.instance.api.bdkDescriptorAsString(that: this, hint: hint);
 
   Future<String> asStringPrivate({dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorAsStringPrivate(that: this, hint: hint);
+      BdkCore.instance.api.bdkDescriptorAsStringPrivate(that: this, hint: hint);
 
-  Future<int> maxSatisfactionWeight({dynamic hint}) => CApi.instance.api
+  Future<int> maxSatisfactionWeight({dynamic hint}) => BdkCore.instance.api
       .bdkDescriptorMaxSatisfactionWeight(that: this, hint: hint);
 
   // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
@@ -109,7 +109,7 @@ class BdkDescriptor {
           {required String descriptor,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNew(
+      BdkCore.instance.api.bdkDescriptorNew(
           descriptor: descriptor, network: network, hint: hint);
 
   static Future<BdkDescriptor> newBip44(
@@ -117,7 +117,7 @@ class BdkDescriptor {
           required KeychainKind keychainKind,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNewBip44(
+      BdkCore.instance.api.bdkDescriptorNewBip44(
           secretKey: secretKey,
           keychainKind: keychainKind,
           network: network,
@@ -129,7 +129,7 @@ class BdkDescriptor {
           required KeychainKind keychainKind,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNewBip44Public(
+      BdkCore.instance.api.bdkDescriptorNewBip44Public(
           publicKey: publicKey,
           fingerprint: fingerprint,
           keychainKind: keychainKind,
@@ -141,7 +141,7 @@ class BdkDescriptor {
           required KeychainKind keychainKind,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNewBip49(
+      BdkCore.instance.api.bdkDescriptorNewBip49(
           secretKey: secretKey,
           keychainKind: keychainKind,
           network: network,
@@ -153,7 +153,7 @@ class BdkDescriptor {
           required KeychainKind keychainKind,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNewBip49Public(
+      BdkCore.instance.api.bdkDescriptorNewBip49Public(
           publicKey: publicKey,
           fingerprint: fingerprint,
           keychainKind: keychainKind,
@@ -165,7 +165,7 @@ class BdkDescriptor {
           required KeychainKind keychainKind,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNewBip84(
+      BdkCore.instance.api.bdkDescriptorNewBip84(
           secretKey: secretKey,
           keychainKind: keychainKind,
           network: network,
@@ -177,7 +177,7 @@ class BdkDescriptor {
           required KeychainKind keychainKind,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNewBip84Public(
+      BdkCore.instance.api.bdkDescriptorNewBip84Public(
           publicKey: publicKey,
           fingerprint: fingerprint,
           keychainKind: keychainKind,
@@ -189,7 +189,7 @@ class BdkDescriptor {
           required KeychainKind keychainKind,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNewBip86(
+      BdkCore.instance.api.bdkDescriptorNewBip86(
           secretKey: secretKey,
           keychainKind: keychainKind,
           network: network,
@@ -201,7 +201,7 @@ class BdkDescriptor {
           required KeychainKind keychainKind,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorNewBip86Public(
+      BdkCore.instance.api.bdkDescriptorNewBip86Public(
           publicKey: publicKey,
           fingerprint: fingerprint,
           keychainKind: keychainKind,

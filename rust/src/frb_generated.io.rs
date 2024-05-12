@@ -1833,7 +1833,7 @@ impl Default for wire_cst_tx_out {
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_broadcast(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_blockchain_broadcast(
     port_: i64,
     that: *mut wire_cst_bdk_blockchain,
     transaction: *mut wire_cst_bdk_transaction,
@@ -1842,7 +1842,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_broadcast(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_estimate_fee(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_blockchain_estimate_fee(
     port_: i64,
     that: *mut wire_cst_bdk_blockchain,
     target: u64,
@@ -1851,7 +1851,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_estimate_fee(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_get_block_hash(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_blockchain_get_block_hash(
     port_: i64,
     that: *mut wire_cst_bdk_blockchain,
     height: u32,
@@ -1860,7 +1860,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_get_block_hash(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_get_height(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_blockchain_get_height(
     port_: i64,
     that: *mut wire_cst_bdk_blockchain,
 ) {
@@ -1868,7 +1868,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_get_height(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_new(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_blockchain_new(
     port_: i64,
     blockchain_config: *mut wire_cst_blockchain_config,
 ) {
@@ -1876,7 +1876,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_blockchain_new(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_as_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_as_string(
     port_: i64,
     that: *mut wire_cst_bdk_descriptor,
 ) {
@@ -1884,7 +1884,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_as_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_as_string_private(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_as_string_private(
     port_: i64,
     that: *mut wire_cst_bdk_descriptor,
 ) {
@@ -1892,7 +1892,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_as_string_private(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_max_satisfaction_weight(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_max_satisfaction_weight(
     port_: i64,
     that: *mut wire_cst_bdk_descriptor,
 ) {
@@ -1900,7 +1900,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_max_satisfaction_weight
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new(
     port_: i64,
     descriptor: *mut wire_cst_list_prim_u_8_strict,
     network: i32,
@@ -1909,7 +1909,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip44(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new_bip44(
     port_: i64,
     secret_key: *mut wire_cst_bdk_descriptor_secret_key,
     keychain_kind: i32,
@@ -1919,7 +1919,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip44(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip44_public(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new_bip44_public(
     port_: i64,
     public_key: *mut wire_cst_bdk_descriptor_public_key,
     fingerprint: *mut wire_cst_list_prim_u_8_strict,
@@ -1936,7 +1936,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip44_public(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip49(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new_bip49(
     port_: i64,
     secret_key: *mut wire_cst_bdk_descriptor_secret_key,
     keychain_kind: i32,
@@ -1946,7 +1946,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip49(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip49_public(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new_bip49_public(
     port_: i64,
     public_key: *mut wire_cst_bdk_descriptor_public_key,
     fingerprint: *mut wire_cst_list_prim_u_8_strict,
@@ -1963,7 +1963,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip49_public(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip84(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new_bip84(
     port_: i64,
     secret_key: *mut wire_cst_bdk_descriptor_secret_key,
     keychain_kind: i32,
@@ -1973,7 +1973,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip84(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip84_public(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new_bip84_public(
     port_: i64,
     public_key: *mut wire_cst_bdk_descriptor_public_key,
     fingerprint: *mut wire_cst_list_prim_u_8_strict,
@@ -1990,7 +1990,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip84_public(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip86(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new_bip86(
     port_: i64,
     secret_key: *mut wire_cst_bdk_descriptor_secret_key,
     keychain_kind: i32,
@@ -2000,7 +2000,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip86(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip86_public(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_new_bip86_public(
     port_: i64,
     public_key: *mut wire_cst_bdk_descriptor_public_key,
     fingerprint: *mut wire_cst_list_prim_u_8_strict,
@@ -2017,7 +2017,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_new_bip86_public(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_derivation_path_from_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_derivation_path_from_string(
     port_: i64,
     path: *mut wire_cst_list_prim_u_8_strict,
 ) {
@@ -2025,7 +2025,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_derivation_path_from_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_public_key_as_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_public_key_as_string(
     port_: i64,
     that: *mut wire_cst_bdk_descriptor_public_key,
 ) {
@@ -2033,7 +2033,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_public_key_as_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_public_key_derive(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_public_key_derive(
     port_: i64,
     ptr: *mut wire_cst_bdk_descriptor_public_key,
     path: *mut wire_cst_bdk_derivation_path,
@@ -2042,7 +2042,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_public_key_derive(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_public_key_extend(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_public_key_extend(
     port_: i64,
     ptr: *mut wire_cst_bdk_descriptor_public_key,
     path: *mut wire_cst_bdk_derivation_path,
@@ -2051,7 +2051,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_public_key_extend(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_public_key_from_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_public_key_from_string(
     port_: i64,
     public_key: *mut wire_cst_list_prim_u_8_strict,
 ) {
@@ -2059,7 +2059,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_public_key_from_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_as_public(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_secret_key_as_public(
     port_: i64,
     ptr: *mut wire_cst_bdk_descriptor_secret_key,
 ) {
@@ -2067,7 +2067,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_as_public(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_as_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_secret_key_as_string(
     port_: i64,
     that: *mut wire_cst_bdk_descriptor_secret_key,
 ) {
@@ -2075,7 +2075,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_as_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_create(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_secret_key_create(
     port_: i64,
     network: i32,
     mnemonic: *mut wire_cst_bdk_mnemonic,
@@ -2085,7 +2085,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_create(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_derive(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_secret_key_derive(
     port_: i64,
     ptr: *mut wire_cst_bdk_descriptor_secret_key,
     path: *mut wire_cst_bdk_derivation_path,
@@ -2094,7 +2094,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_derive(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_extend(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_secret_key_extend(
     port_: i64,
     ptr: *mut wire_cst_bdk_descriptor_secret_key,
     path: *mut wire_cst_bdk_derivation_path,
@@ -2103,7 +2103,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_extend(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_from_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_secret_key_from_string(
     port_: i64,
     secret_key: *mut wire_cst_list_prim_u_8_strict,
 ) {
@@ -2111,7 +2111,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_from_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_secret_bytes(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_descriptor_secret_key_secret_bytes(
     port_: i64,
     that: *mut wire_cst_bdk_descriptor_secret_key,
 ) {
@@ -2119,7 +2119,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_descriptor_secret_key_secret_bytes
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_mnemonic_as_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_mnemonic_as_string(
     port_: i64,
     that: *mut wire_cst_bdk_mnemonic,
 ) {
@@ -2127,7 +2127,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_mnemonic_as_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_mnemonic_from_entropy(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_mnemonic_from_entropy(
     port_: i64,
     entropy: *mut wire_cst_list_prim_u_8_loose,
 ) {
@@ -2135,7 +2135,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_mnemonic_from_entropy(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_mnemonic_from_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_mnemonic_from_string(
     port_: i64,
     mnemonic: *mut wire_cst_list_prim_u_8_strict,
 ) {
@@ -2143,12 +2143,12 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_mnemonic_from_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_mnemonic_new(port_: i64, word_count: i32) {
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_mnemonic_new(port_: i64, word_count: i32) {
     wire_bdk_mnemonic_new_impl(port_, word_count)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_combine(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_psbt_combine(
     port_: i64,
     ptr: *mut wire_cst_bdk_psbt,
     other: *mut wire_cst_bdk_psbt,
@@ -2157,7 +2157,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_combine(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_extract_tx(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_psbt_extract_tx(
     port_: i64,
     ptr: *mut wire_cst_bdk_psbt,
 ) {
@@ -2165,7 +2165,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_extract_tx(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_fee_amount(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_psbt_fee_amount(
     port_: i64,
     that: *mut wire_cst_bdk_psbt,
 ) {
@@ -2173,15 +2173,12 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_fee_amount(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_fee_rate(
-    port_: i64,
-    that: *mut wire_cst_bdk_psbt,
-) {
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_psbt_fee_rate(port_: i64, that: *mut wire_cst_bdk_psbt) {
     wire_bdk_psbt_fee_rate_impl(port_, that)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_from_str(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_psbt_from_str(
     port_: i64,
     psbt_base64: *mut wire_cst_list_prim_u_8_strict,
 ) {
@@ -2189,7 +2186,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_from_str(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_json_serialize(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_psbt_json_serialize(
     port_: i64,
     that: *mut wire_cst_bdk_psbt,
 ) {
@@ -2197,7 +2194,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_json_serialize(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_serialize(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_psbt_serialize(
     port_: i64,
     that: *mut wire_cst_bdk_psbt,
 ) {
@@ -2205,12 +2202,12 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_serialize(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_psbt_txid(port_: i64, that: *mut wire_cst_bdk_psbt) {
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_psbt_txid(port_: i64, that: *mut wire_cst_bdk_psbt) {
     wire_bdk_psbt_txid_impl(port_, that)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_as_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_address_as_string(
     port_: i64,
     that: *mut wire_cst_bdk_address,
 ) {
@@ -2218,7 +2215,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_as_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_from_script(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_address_from_script(
     port_: i64,
     script: *mut wire_cst_bdk_script_buf,
     network: i32,
@@ -2227,7 +2224,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_from_script(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_from_string(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_address_from_string(
     port_: i64,
     address: *mut wire_cst_list_prim_u_8_strict,
     network: i32,
@@ -2236,7 +2233,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_from_string(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_is_valid_for_network(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_address_is_valid_for_network(
     port_: i64,
     that: *mut wire_cst_bdk_address,
     network: i32,
@@ -2245,7 +2242,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_is_valid_for_network(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_network(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_address_network(
     port_: i64,
     that: *mut wire_cst_bdk_address,
 ) {
@@ -2253,7 +2250,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_network(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_payload(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_address_payload(
     port_: i64,
     that: *mut wire_cst_bdk_address,
 ) {
@@ -2261,7 +2258,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_payload(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_script(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_address_script(
     port_: i64,
     ptr: *mut wire_cst_bdk_address,
 ) {
@@ -2269,7 +2266,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_script(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_to_qr_uri(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_address_to_qr_uri(
     port_: i64,
     that: *mut wire_cst_bdk_address,
 ) {
@@ -2277,12 +2274,12 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_address_to_qr_uri(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_script_buf_empty(port_: i64) {
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_script_buf_empty(port_: i64) {
     wire_bdk_script_buf_empty_impl(port_)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_script_buf_from_hex(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_script_buf_from_hex(
     port_: i64,
     s: *mut wire_cst_list_prim_u_8_strict,
 ) {
@@ -2290,15 +2287,12 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_script_buf_from_hex(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_script_buf_with_capacity(
-    port_: i64,
-    capacity: usize,
-) {
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_script_buf_with_capacity(port_: i64, capacity: usize) {
     wire_bdk_script_buf_with_capacity_impl(port_, capacity)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_from_bytes(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_from_bytes(
     port_: i64,
     transaction_bytes: *mut wire_cst_list_prim_u_8_loose,
 ) {
@@ -2306,7 +2300,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_from_bytes(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_input(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_input(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2314,7 +2308,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_input(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_is_coin_base(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_is_coin_base(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2322,7 +2316,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_is_coin_base(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_is_explicitly_rbf(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_is_explicitly_rbf(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2330,7 +2324,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_is_explicitly_rbf(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_is_lock_time_enabled(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_is_lock_time_enabled(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2338,7 +2332,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_is_lock_time_enabled(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_lock_time(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_lock_time(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2346,7 +2340,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_lock_time(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_new(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_new(
     port_: i64,
     version: i32,
     lock_time: *mut wire_cst_lock_time,
@@ -2357,7 +2351,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_new(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_output(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_output(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2365,7 +2359,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_output(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_serialize(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_serialize(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2373,7 +2367,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_serialize(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_size(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_size(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2381,7 +2375,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_size(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_txid(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_txid(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2389,7 +2383,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_txid(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_version(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_version(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2397,7 +2391,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_version(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_vsize(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_vsize(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2405,7 +2399,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_vsize(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_weight(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_transaction_weight(
     port_: i64,
     that: *mut wire_cst_bdk_transaction,
 ) {
@@ -2413,7 +2407,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_transaction_weight(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_address(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_get_address(
     port_: i64,
     ptr: *mut wire_cst_bdk_wallet,
     address_index: *mut wire_cst_address_index,
@@ -2422,7 +2416,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_address(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_balance(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_get_balance(
     port_: i64,
     that: *mut wire_cst_bdk_wallet,
 ) {
@@ -2430,7 +2424,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_balance(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_descriptor_for_keychain(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_get_descriptor_for_keychain(
     port_: i64,
     ptr: *mut wire_cst_bdk_wallet,
     keychain: i32,
@@ -2439,7 +2433,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_descriptor_for_keychain
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_internal_address(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_get_internal_address(
     port_: i64,
     ptr: *mut wire_cst_bdk_wallet,
     address_index: *mut wire_cst_address_index,
@@ -2448,7 +2442,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_internal_address(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_psbt_input(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_get_psbt_input(
     port_: i64,
     that: *mut wire_cst_bdk_wallet,
     utxo: *mut wire_cst_local_utxo,
@@ -2459,7 +2453,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_get_psbt_input(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_is_mine(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_is_mine(
     port_: i64,
     that: *mut wire_cst_bdk_wallet,
     script: *mut wire_cst_bdk_script_buf,
@@ -2468,7 +2462,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_is_mine(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_list_transactions(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_list_transactions(
     port_: i64,
     that: *mut wire_cst_bdk_wallet,
     include_raw: bool,
@@ -2477,7 +2471,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_list_transactions(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_list_unspent(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_list_unspent(
     port_: i64,
     that: *mut wire_cst_bdk_wallet,
 ) {
@@ -2485,7 +2479,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_list_unspent(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_network(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_network(
     port_: i64,
     that: *mut wire_cst_bdk_wallet,
 ) {
@@ -2493,7 +2487,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_network(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_new(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_new(
     port_: i64,
     descriptor: *mut wire_cst_bdk_descriptor,
     change_descriptor: *mut wire_cst_bdk_descriptor,
@@ -2510,7 +2504,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_new(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_sign(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_sign(
     port_: i64,
     ptr: *mut wire_cst_bdk_wallet,
     psbt: *mut wire_cst_bdk_psbt,
@@ -2520,7 +2514,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_sign(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_sync(
+pub extern "C" fn frbgen_bdk_dart_wire_bdk_wallet_sync(
     port_: i64,
     ptr: *mut wire_cst_bdk_wallet,
     blockchain: *mut wire_cst_bdk_blockchain,
@@ -2529,7 +2523,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_bdk_wallet_sync(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_finish_bump_fee_tx_builder(
+pub extern "C" fn frbgen_bdk_dart_wire_finish_bump_fee_tx_builder(
     port_: i64,
     txid: *mut wire_cst_list_prim_u_8_strict,
     fee_rate: f32,
@@ -2550,7 +2544,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_finish_bump_fee_tx_builder(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_wire_tx_builder_finish(
+pub extern "C" fn frbgen_bdk_dart_wire_tx_builder_finish(
     port_: i64,
     wallet: *mut wire_cst_bdk_wallet,
     recipients: *mut wire_cst_list_script_amount,
@@ -2585,7 +2579,7 @@ pub extern "C" fn frbgen_bdk_flutter_wire_tx_builder_finish(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_AnyBlockchain(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_AnyBlockchain(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2594,7 +2588,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_AnyBlockchain(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_AnyBlockchain(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2603,7 +2597,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_ExtendedDescriptor(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_ExtendedDescriptor(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2612,7 +2606,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_ExtendedDescriptor(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_ExtendedDescriptor(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2621,7 +2615,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_MutexPartiallySignedTransaction(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_MutexPartiallySignedTransaction(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2630,7 +2624,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_MutexPartiallySignedTransaction(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_MutexPartiallySignedTransaction(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2639,7 +2633,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_MutexbdkWalletAnyDatabase(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_MutexbdkWalletAnyDatabase(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2648,7 +2642,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_MutexbdkWalletAnyDatabase(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_MutexbdkWalletAnyDatabase(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2657,7 +2651,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_bdkbitcoinAddress(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_bdkbitcoinAddress(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2666,7 +2660,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_bdkbitcoinAddress(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_bdkbitcoinAddress(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2675,7 +2669,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_bitcoinbip32DerivationPath(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_bitcoinbip32DerivationPath(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2684,7 +2678,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_bitcoinbip32DerivationPath(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_bitcoinbip32DerivationPath(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2693,7 +2687,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_keysDescriptorPublicKey(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_keysDescriptorPublicKey(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2702,7 +2696,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_keysDescriptorPublicKey(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_keysDescriptorPublicKey(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2711,7 +2705,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_keysDescriptorSecretKey(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_keysDescriptorSecretKey(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2720,7 +2714,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_keysDescriptorSecretKey(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_keysDescriptorSecretKey(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2729,7 +2723,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_keysKeyMap(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_keysKeyMap(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2738,7 +2732,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_keysKeyMap(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_keysKeyMap(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2747,7 +2741,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_keysbip39Mnemonic(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_increment_strong_count_RustOpaque_keysbip39Mnemonic(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2756,7 +2750,7 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_increment_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_keysbip39Mnemonic(
+pub extern "C" fn frbgen_bdk_dart_rust_arc_decrement_strong_count_RustOpaque_keysbip39Mnemonic(
     ptr: *const std::ffi::c_void,
 ) {
     unsafe {
@@ -2765,25 +2759,24 @@ pub extern "C" fn frbgen_bdk_flutter_rust_arc_decrement_strong_count_RustOpaque_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_address_error(
-) -> *mut wire_cst_address_error {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_address_error() -> *mut wire_cst_address_error
+{
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_address_error::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_address_index(
-) -> *mut wire_cst_address_index {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_address_index() -> *mut wire_cst_address_index
+{
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_address_index::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_address() -> *mut wire_cst_bdk_address
-{
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_address() -> *mut wire_cst_bdk_address {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_bdk_address::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_blockchain(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_blockchain(
 ) -> *mut wire_cst_bdk_blockchain {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_bdk_blockchain::new_with_null_ptr(),
@@ -2791,7 +2784,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_blockchain(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_derivation_path(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_derivation_path(
 ) -> *mut wire_cst_bdk_derivation_path {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_bdk_derivation_path::new_with_null_ptr(),
@@ -2799,7 +2792,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_derivation_path(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_descriptor(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_descriptor(
 ) -> *mut wire_cst_bdk_descriptor {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_bdk_descriptor::new_with_null_ptr(),
@@ -2807,7 +2800,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_descriptor(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_descriptor_public_key(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_descriptor_public_key(
 ) -> *mut wire_cst_bdk_descriptor_public_key {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_bdk_descriptor_public_key::new_with_null_ptr(),
@@ -2815,7 +2808,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_descriptor_public_k
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_descriptor_secret_key(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_descriptor_secret_key(
 ) -> *mut wire_cst_bdk_descriptor_secret_key {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_bdk_descriptor_secret_key::new_with_null_ptr(),
@@ -2823,18 +2816,17 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_descriptor_secret_k
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_mnemonic() -> *mut wire_cst_bdk_mnemonic
-{
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_mnemonic() -> *mut wire_cst_bdk_mnemonic {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_bdk_mnemonic::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_psbt() -> *mut wire_cst_bdk_psbt {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_psbt() -> *mut wire_cst_bdk_psbt {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_bdk_psbt::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_script_buf(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_script_buf(
 ) -> *mut wire_cst_bdk_script_buf {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_bdk_script_buf::new_with_null_ptr(),
@@ -2842,7 +2834,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_script_buf(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_transaction(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_transaction(
 ) -> *mut wire_cst_bdk_transaction {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_bdk_transaction::new_with_null_ptr(),
@@ -2850,17 +2842,17 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_transaction(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_bdk_wallet() -> *mut wire_cst_bdk_wallet {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_bdk_wallet() -> *mut wire_cst_bdk_wallet {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_bdk_wallet::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_block_time() -> *mut wire_cst_block_time {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_block_time() -> *mut wire_cst_block_time {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_block_time::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_blockchain_config(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_blockchain_config(
 ) -> *mut wire_cst_blockchain_config {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_blockchain_config::new_with_null_ptr(),
@@ -2868,7 +2860,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_blockchain_config(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_consensus_error(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_consensus_error(
 ) -> *mut wire_cst_consensus_error {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_consensus_error::new_with_null_ptr(),
@@ -2876,7 +2868,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_consensus_error(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_database_config(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_database_config(
 ) -> *mut wire_cst_database_config {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_database_config::new_with_null_ptr(),
@@ -2884,7 +2876,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_database_config(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_descriptor_error(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_descriptor_error(
 ) -> *mut wire_cst_descriptor_error {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_descriptor_error::new_with_null_ptr(),
@@ -2892,7 +2884,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_descriptor_error(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_electrum_config(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_electrum_config(
 ) -> *mut wire_cst_electrum_config {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_electrum_config::new_with_null_ptr(),
@@ -2900,7 +2892,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_electrum_config(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_esplora_config(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_esplora_config(
 ) -> *mut wire_cst_esplora_config {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_esplora_config::new_with_null_ptr(),
@@ -2908,37 +2900,37 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_esplora_config(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_f_32(value: f32) -> *mut f32 {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_f_32(value: f32) -> *mut f32 {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(value)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_fee_rate() -> *mut wire_cst_fee_rate {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_fee_rate() -> *mut wire_cst_fee_rate {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_fee_rate::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_hex_error() -> *mut wire_cst_hex_error {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_hex_error() -> *mut wire_cst_hex_error {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_hex_error::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_local_utxo() -> *mut wire_cst_local_utxo {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_local_utxo() -> *mut wire_cst_local_utxo {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_local_utxo::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_lock_time() -> *mut wire_cst_lock_time {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_lock_time() -> *mut wire_cst_lock_time {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_lock_time::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_out_point() -> *mut wire_cst_out_point {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_out_point() -> *mut wire_cst_out_point {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_out_point::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_psbt_sig_hash_type(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_psbt_sig_hash_type(
 ) -> *mut wire_cst_psbt_sig_hash_type {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_psbt_sig_hash_type::new_with_null_ptr(),
@@ -2946,12 +2938,12 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_psbt_sig_hash_type(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_rbf_value() -> *mut wire_cst_rbf_value {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_rbf_value() -> *mut wire_cst_rbf_value {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_rbf_value::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_record_out_point_input_usize(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_record_out_point_input_usize(
 ) -> *mut wire_cst_record_out_point_input_usize {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_record_out_point_input_usize::new_with_null_ptr(),
@@ -2959,12 +2951,12 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_record_out_point_input_
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_rpc_config() -> *mut wire_cst_rpc_config {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_rpc_config() -> *mut wire_cst_rpc_config {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_rpc_config::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_rpc_sync_params(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_rpc_sync_params(
 ) -> *mut wire_cst_rpc_sync_params {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_rpc_sync_params::new_with_null_ptr(),
@@ -2972,13 +2964,12 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_rpc_sync_params(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_sign_options() -> *mut wire_cst_sign_options
-{
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_sign_options() -> *mut wire_cst_sign_options {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(wire_cst_sign_options::new_with_null_ptr())
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_sled_db_configuration(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_sled_db_configuration(
 ) -> *mut wire_cst_sled_db_configuration {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_sled_db_configuration::new_with_null_ptr(),
@@ -2986,7 +2977,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_sled_db_configuration(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_sqlite_db_configuration(
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_sqlite_db_configuration(
 ) -> *mut wire_cst_sqlite_db_configuration {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(
         wire_cst_sqlite_db_configuration::new_with_null_ptr(),
@@ -2994,22 +2985,22 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_sqlite_db_configuration
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_u_32(value: u32) -> *mut u32 {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_u_32(value: u32) -> *mut u32 {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(value)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_u_64(value: u64) -> *mut u64 {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_u_64(value: u64) -> *mut u64 {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(value)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_box_autoadd_u_8(value: u8) -> *mut u8 {
+pub extern "C" fn frbgen_bdk_dart_cst_new_box_autoadd_u_8(value: u8) -> *mut u8 {
     flutter_rust_bridge::for_generated::new_leak_box_ptr(value)
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_list_prim_u_8_strict(
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_list_prim_u_8_strict(
     len: i32,
 ) -> *mut wire_cst_list_list_prim_u_8_strict {
     let wrap = wire_cst_list_list_prim_u_8_strict {
@@ -3023,7 +3014,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_list_list_prim_u_8_strict(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_local_utxo(
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_local_utxo(
     len: i32,
 ) -> *mut wire_cst_list_local_utxo {
     let wrap = wire_cst_list_local_utxo {
@@ -3037,9 +3028,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_list_local_utxo(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_out_point(
-    len: i32,
-) -> *mut wire_cst_list_out_point {
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_out_point(len: i32) -> *mut wire_cst_list_out_point {
     let wrap = wire_cst_list_out_point {
         ptr: flutter_rust_bridge::for_generated::new_leak_vec_ptr(
             <wire_cst_out_point>::new_with_null_ptr(),
@@ -3051,7 +3040,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_list_out_point(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_prim_u_8_loose(
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_prim_u_8_loose(
     len: i32,
 ) -> *mut wire_cst_list_prim_u_8_loose {
     let ans = wire_cst_list_prim_u_8_loose {
@@ -3062,7 +3051,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_list_prim_u_8_loose(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_prim_u_8_strict(
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_prim_u_8_strict(
     len: i32,
 ) -> *mut wire_cst_list_prim_u_8_strict {
     let ans = wire_cst_list_prim_u_8_strict {
@@ -3073,7 +3062,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_list_prim_u_8_strict(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_script_amount(
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_script_amount(
     len: i32,
 ) -> *mut wire_cst_list_script_amount {
     let wrap = wire_cst_list_script_amount {
@@ -3087,7 +3076,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_list_script_amount(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_transaction_details(
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_transaction_details(
     len: i32,
 ) -> *mut wire_cst_list_transaction_details {
     let wrap = wire_cst_list_transaction_details {
@@ -3101,7 +3090,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_list_transaction_details(
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_tx_in(len: i32) -> *mut wire_cst_list_tx_in {
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_tx_in(len: i32) -> *mut wire_cst_list_tx_in {
     let wrap = wire_cst_list_tx_in {
         ptr: flutter_rust_bridge::for_generated::new_leak_vec_ptr(
             <wire_cst_tx_in>::new_with_null_ptr(),
@@ -3113,7 +3102,7 @@ pub extern "C" fn frbgen_bdk_flutter_cst_new_list_tx_in(len: i32) -> *mut wire_c
 }
 
 #[no_mangle]
-pub extern "C" fn frbgen_bdk_flutter_cst_new_list_tx_out(len: i32) -> *mut wire_cst_list_tx_out {
+pub extern "C" fn frbgen_bdk_dart_cst_new_list_tx_out(len: i32) -> *mut wire_cst_list_tx_out {
     let wrap = wire_cst_list_tx_out {
         ptr: flutter_rust_bridge::for_generated::new_leak_vec_ptr(
             <wire_cst_tx_out>::new_with_null_ptr(),

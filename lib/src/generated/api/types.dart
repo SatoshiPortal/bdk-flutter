@@ -21,11 +21,11 @@ class BdkBitcoinAddress extends RustOpaque {
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount:
-        CApi.instance.api.rust_arc_increment_strong_count_BdkBitcoinAddress,
+        BdkCore.instance.api.rust_arc_increment_strong_count_BdkBitcoinAddress,
     rustArcDecrementStrongCount:
-        CApi.instance.api.rust_arc_decrement_strong_count_BdkBitcoinAddress,
-    rustArcDecrementStrongCountPtr:
-        CApi.instance.api.rust_arc_decrement_strong_count_BdkBitcoinAddressPtr,
+        BdkCore.instance.api.rust_arc_decrement_strong_count_BdkBitcoinAddress,
+    rustArcDecrementStrongCountPtr: BdkCore
+        .instance.api.rust_arc_decrement_strong_count_BdkBitcoinAddressPtr,
   );
 }
 
@@ -118,37 +118,37 @@ class BdkAddress {
   });
 
   Future<String> asString({dynamic hint}) =>
-      CApi.instance.api.bdkAddressAsString(that: this, hint: hint);
+      BdkCore.instance.api.bdkAddressAsString(that: this, hint: hint);
 
   static Future<BdkAddress> fromScript(
           {required BdkScriptBuf script,
           required Network network,
           dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkAddressFromScript(script: script, network: network, hint: hint);
 
   static Future<BdkAddress> fromString(
           {required String address, required Network network, dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkAddressFromString(address: address, network: network, hint: hint);
 
   Future<bool> isValidForNetwork({required Network network, dynamic hint}) =>
-      CApi.instance.api.bdkAddressIsValidForNetwork(
+      BdkCore.instance.api.bdkAddressIsValidForNetwork(
           that: this, network: network, hint: hint);
 
   ///The network on which this address is usable.
   Future<Network> network({dynamic hint}) =>
-      CApi.instance.api.bdkAddressNetwork(that: this, hint: hint);
+      BdkCore.instance.api.bdkAddressNetwork(that: this, hint: hint);
 
   Future<Payload> payload({dynamic hint}) =>
-      CApi.instance.api.bdkAddressPayload(that: this, hint: hint);
+      BdkCore.instance.api.bdkAddressPayload(that: this, hint: hint);
 
   static Future<BdkScriptBuf> script({required BdkAddress ptr, dynamic hint}) =>
-      CApi.instance.api.bdkAddressScript(ptr: ptr, hint: hint);
+      BdkCore.instance.api.bdkAddressScript(ptr: ptr, hint: hint);
 
   ///Creates a URI string bitcoin:address optimized to be encoded in QR codes.
   Future<String> toQrUri({dynamic hint}) =>
-      CApi.instance.api.bdkAddressToQrUri(that: this, hint: hint);
+      BdkCore.instance.api.bdkAddressToQrUri(that: this, hint: hint);
 
   @override
   int get hashCode => ptr.hashCode;
@@ -170,15 +170,15 @@ class BdkScriptBuf {
 
   ///Creates a new empty script.
   static Future<BdkScriptBuf> empty({dynamic hint}) =>
-      CApi.instance.api.bdkScriptBufEmpty(hint: hint);
+      BdkCore.instance.api.bdkScriptBufEmpty(hint: hint);
 
   static Future<BdkScriptBuf> fromHex({required String s, dynamic hint}) =>
-      CApi.instance.api.bdkScriptBufFromHex(s: s, hint: hint);
+      BdkCore.instance.api.bdkScriptBufFromHex(s: s, hint: hint);
 
   ///Creates a new empty script with pre-allocated capacity.
   static Future<BdkScriptBuf> withCapacity(
           {required int capacity, dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkScriptBufWithCapacity(capacity: capacity, hint: hint);
 
   @override
@@ -201,29 +201,29 @@ class BdkTransaction {
 
   static Future<BdkTransaction> fromBytes(
           {required List<int> transactionBytes, dynamic hint}) =>
-      CApi.instance.api.bdkTransactionFromBytes(
+      BdkCore.instance.api.bdkTransactionFromBytes(
           transactionBytes: transactionBytes, hint: hint);
 
   ///List of transaction inputs.
   Future<List<TxIn>> input({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionInput(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionInput(that: this, hint: hint);
 
   ///Is this a coin base transaction?
   Future<bool> isCoinBase({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionIsCoinBase(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionIsCoinBase(that: this, hint: hint);
 
   ///Returns true if the transaction itself opted in to be BIP-125-replaceable (RBF).
   /// This does not cover the case where a transaction becomes replaceable due to ancestors being RBF.
-  Future<bool> isExplicitlyRbf({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionIsExplicitlyRbf(that: this, hint: hint);
+  Future<bool> isExplicitlyRbf({dynamic hint}) => BdkCore.instance.api
+      .bdkTransactionIsExplicitlyRbf(that: this, hint: hint);
 
   ///Returns true if this transactions nLockTime is enabled (BIP-65 ).
-  Future<bool> isLockTimeEnabled({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionIsLockTimeEnabled(that: this, hint: hint);
+  Future<bool> isLockTimeEnabled({dynamic hint}) => BdkCore.instance.api
+      .bdkTransactionIsLockTimeEnabled(that: this, hint: hint);
 
   ///Block height or timestamp. Transaction cannot be included in a block until this height/time.
   Future<LockTime> lockTime({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionLockTime(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionLockTime(that: this, hint: hint);
 
   // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
   static Future<BdkTransaction> newInstance(
@@ -232,7 +232,7 @@ class BdkTransaction {
           required List<TxIn> input,
           required List<TxOut> output,
           dynamic hint}) =>
-      CApi.instance.api.bdkTransactionNew(
+      BdkCore.instance.api.bdkTransactionNew(
           version: version,
           lockTime: lockTime,
           input: input,
@@ -241,33 +241,33 @@ class BdkTransaction {
 
   ///List of transaction outputs.
   Future<List<TxOut>> output({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionOutput(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionOutput(that: this, hint: hint);
 
   ///Encodes an object into a vector.
   Future<Uint8List> serialize({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionSerialize(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionSerialize(that: this, hint: hint);
 
   ///Returns the regular byte-wise consensus-serialized size of this transaction.
   Future<int> size({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionSize(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionSize(that: this, hint: hint);
 
   ///Computes the txid. For non-segwit transactions this will be identical to the output of wtxid(),
   /// but for segwit transactions, this will give the correct txid (not including witnesses) while wtxid will also hash witnesses.
   Future<String> txid({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionTxid(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionTxid(that: this, hint: hint);
 
   ///The protocol version, is currently expected to be 1 or 2 (BIP 68).
   Future<int> version({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionVersion(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionVersion(that: this, hint: hint);
 
   ///Returns the “virtual size” (vsize) of this transaction.
   ///
   Future<int> vsize({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionVsize(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionVsize(that: this, hint: hint);
 
   ///Returns the regular byte-wise consensus-serialized size of this transaction.
   Future<int> weight({dynamic hint}) =>
-      CApi.instance.api.bdkTransactionWeight(that: this, hint: hint);
+      BdkCore.instance.api.bdkTransactionWeight(that: this, hint: hint);
 
   @override
   int get hashCode => inner.hashCode;

@@ -19,11 +19,11 @@ class MutexPartiallySignedTransaction extends RustOpaque {
       : super.sseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: CApi.instance.api
+    rustArcIncrementStrongCount: BdkCore.instance.api
         .rust_arc_increment_strong_count_MutexPartiallySignedTransaction,
-    rustArcDecrementStrongCount: CApi.instance.api
+    rustArcDecrementStrongCount: BdkCore.instance.api
         .rust_arc_decrement_strong_count_MutexPartiallySignedTransaction,
-    rustArcDecrementStrongCountPtr: CApi.instance.api
+    rustArcDecrementStrongCountPtr: BdkCore.instance.api
         .rust_arc_decrement_strong_count_MutexPartiallySignedTransactionPtr,
   );
 }
@@ -40,37 +40,37 @@ class BdkPsbt {
   /// In accordance with BIP 174 this function is commutative i.e., `A.combine(B) == B.combine(A)`
   static Future<BdkPsbt> combine(
           {required BdkPsbt ptr, required BdkPsbt other, dynamic hint}) =>
-      CApi.instance.api.bdkPsbtCombine(ptr: ptr, other: other, hint: hint);
+      BdkCore.instance.api.bdkPsbtCombine(ptr: ptr, other: other, hint: hint);
 
   /// Return the transaction.
   static Future<BdkTransaction> extractTx(
           {required BdkPsbt ptr, dynamic hint}) =>
-      CApi.instance.api.bdkPsbtExtractTx(ptr: ptr, hint: hint);
+      BdkCore.instance.api.bdkPsbtExtractTx(ptr: ptr, hint: hint);
 
   /// The total transaction fee amount, sum of input amounts minus sum of output amounts, in Sats.
   /// If the PSBT is missing a TxOut for an input returns None.
   Future<int?> feeAmount({dynamic hint}) =>
-      CApi.instance.api.bdkPsbtFeeAmount(that: this, hint: hint);
+      BdkCore.instance.api.bdkPsbtFeeAmount(that: this, hint: hint);
 
   /// The transaction's fee rate. This value will only be accurate if calculated AFTER the
   /// `PartiallySignedTransaction` is finalized and all witness/signature data is added to the
   /// transaction.
   /// If the PSBT is missing a TxOut for an input returns None.
   Future<FeeRate?> feeRate({dynamic hint}) =>
-      CApi.instance.api.bdkPsbtFeeRate(that: this, hint: hint);
+      BdkCore.instance.api.bdkPsbtFeeRate(that: this, hint: hint);
 
   static Future<BdkPsbt> fromStr({required String psbtBase64, dynamic hint}) =>
-      CApi.instance.api.bdkPsbtFromStr(psbtBase64: psbtBase64, hint: hint);
+      BdkCore.instance.api.bdkPsbtFromStr(psbtBase64: psbtBase64, hint: hint);
 
   /// Serialize the PSBT data structure as a String of JSON.
   Future<String> jsonSerialize({dynamic hint}) =>
-      CApi.instance.api.bdkPsbtJsonSerialize(that: this, hint: hint);
+      BdkCore.instance.api.bdkPsbtJsonSerialize(that: this, hint: hint);
 
   Future<String> serialize({dynamic hint}) =>
-      CApi.instance.api.bdkPsbtSerialize(that: this, hint: hint);
+      BdkCore.instance.api.bdkPsbtSerialize(that: this, hint: hint);
 
   Future<String> txid({dynamic hint}) =>
-      CApi.instance.api.bdkPsbtTxid(that: this, hint: hint);
+      BdkCore.instance.api.bdkPsbtTxid(that: this, hint: hint);
 
   @override
   int get hashCode => ptr.hashCode;

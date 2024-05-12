@@ -16,15 +16,15 @@ import 'frb_generated.io.dart' if (dart.library.html) 'frb_generated.web.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 /// Main entrypoint of the Rust API
-class CApi extends BaseEntrypoint<CApiApi, CApiApiImpl, CApiWire> {
+class BdkCore extends BaseEntrypoint<BdkCoreApi, BdkCoreApiImpl, BdkCoreWire> {
   @internal
-  static final instance = CApi._();
+  static final instance = BdkCore._();
 
-  CApi._();
+  BdkCore._();
 
   /// Initialize flutter_rust_bridge
   static Future<void> init({
-    CApiApi? api,
+    BdkCoreApi? api,
     BaseHandler? handler,
     ExternalLibrary? externalLibrary,
   }) async {
@@ -42,11 +42,12 @@ class CApi extends BaseEntrypoint<CApiApi, CApiApiImpl, CApiWire> {
   static void dispose() => instance.disposeImpl();
 
   @override
-  ApiImplConstructor<CApiApiImpl, CApiWire> get apiImplConstructor =>
-      CApiApiImpl.new;
+  ApiImplConstructor<BdkCoreApiImpl, BdkCoreWire> get apiImplConstructor =>
+      BdkCoreApiImpl.new;
 
   @override
-  WireConstructor<CApiWire> get wireConstructor => CApiWire.fromExternalLibrary;
+  WireConstructor<BdkCoreWire> get wireConstructor =>
+      BdkCoreWire.fromExternalLibrary;
 
   @override
   Future<void> executeRustInitializers() async {}
@@ -60,13 +61,13 @@ class CApi extends BaseEntrypoint<CApiApi, CApiApiImpl, CApiWire> {
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
-    stem: 'bdk_flutter',
+    stem: 'bdk_dart',
     ioDirectory: 'rust/target/release/',
     webPrefix: 'pkg/',
   );
 }
 
-abstract class CApiApi extends BaseApi {
+abstract class BdkCoreApi extends BaseApi {
   Future<String> bdkBlockchainBroadcast(
       {required BdkBlockchain that,
       required BdkTransaction transaction,
@@ -460,8 +461,8 @@ abstract class CApiApi extends BaseApi {
       get rust_arc_decrement_strong_count_KeysBip39MnemonicPtr;
 }
 
-class CApiApiImpl extends CApiApiImplPlatform implements CApiApi {
-  CApiApiImpl({
+class BdkCoreApiImpl extends BdkCoreApiImplPlatform implements BdkCoreApi {
+  BdkCoreApiImpl({
     required super.handler,
     required super.wire,
     required super.generalizedFrbRustBinding,

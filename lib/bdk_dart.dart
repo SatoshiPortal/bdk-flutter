@@ -1,5 +1,5 @@
 ///A Flutter library for the [Bitcoin Development Kit](https://bitcoindevkit.org/).
-library bdk_flutter;
+library bdk_dart;
 
 export './src/generated/api/blockchain.dart'
     hide

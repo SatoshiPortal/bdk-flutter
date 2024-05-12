@@ -22,11 +22,11 @@ class AnyBlockchain extends RustOpaque {
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount:
-        CApi.instance.api.rust_arc_increment_strong_count_AnyBlockchain,
+        BdkCore.instance.api.rust_arc_increment_strong_count_AnyBlockchain,
     rustArcDecrementStrongCount:
-        CApi.instance.api.rust_arc_decrement_strong_count_AnyBlockchain,
+        BdkCore.instance.api.rust_arc_decrement_strong_count_AnyBlockchain,
     rustArcDecrementStrongCountPtr:
-        CApi.instance.api.rust_arc_decrement_strong_count_AnyBlockchainPtr,
+        BdkCore.instance.api.rust_arc_decrement_strong_count_AnyBlockchainPtr,
   );
 }
 
@@ -62,24 +62,24 @@ class BdkBlockchain {
 
   Future<String> broadcast(
           {required BdkTransaction transaction, dynamic hint}) =>
-      CApi.instance.api.bdkBlockchainBroadcast(
+      BdkCore.instance.api.bdkBlockchainBroadcast(
           that: this, transaction: transaction, hint: hint);
 
   Future<FeeRate> estimateFee({required int target, dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkBlockchainEstimateFee(that: this, target: target, hint: hint);
 
   Future<String> getBlockHash({required int height, dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkBlockchainGetBlockHash(that: this, height: height, hint: hint);
 
   Future<int> getHeight({dynamic hint}) =>
-      CApi.instance.api.bdkBlockchainGetHeight(that: this, hint: hint);
+      BdkCore.instance.api.bdkBlockchainGetHeight(that: this, hint: hint);
 
   // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
   static Future<BdkBlockchain> newInstance(
           {required BlockchainConfig blockchainConfig, dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkBlockchainNew(blockchainConfig: blockchainConfig, hint: hint);
 
   @override

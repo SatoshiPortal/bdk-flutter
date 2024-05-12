@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-      s.name             = 'bdk_flutter'
+      s.name             = 'bdk_darts'
       s.version          = "0.31.2-dev.1"
       s.summary          = 'A Flutter library for the Bitcoin Development Kit (https://bitcoindevkit.org/)'
       s.description      = <<-DESC
@@ -7,7 +7,7 @@ A new Flutter plugin project.
                        DESC
       s.homepage         = 'https://github.com/LtbLightning/bdk-flutter'
       s.license          = { :file => '../LICENSE' }
-      s.author           = { 'Bitcoin Zavior' => 'BitcoinZavior@GMail.Com' }
+      s.author           = { 'ishi' => 'ishi@satoshiportal.com' }
       s.source           = { :path => '.' }
       s.source_files = 'Classes/**/*'
       s.dependency 'Flutter'

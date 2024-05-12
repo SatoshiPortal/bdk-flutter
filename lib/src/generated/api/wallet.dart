@@ -19,7 +19,7 @@ Future<(BdkPsbt, TransactionDetails)> finishBumpFeeTxBuilder(
         required bool enableRbf,
         int? nSequence,
         dynamic hint}) =>
-    CApi.instance.api.finishBumpFeeTxBuilder(
+    BdkCore.instance.api.finishBumpFeeTxBuilder(
         txid: txid,
         feeRate: feeRate,
         allowShrinking: allowShrinking,
@@ -43,7 +43,7 @@ Future<(BdkPsbt, TransactionDetails)> txBuilderFinish(
         RbfValue? rbf,
         required List<int> data,
         dynamic hint}) =>
-    CApi.instance.api.txBuilderFinish(
+    BdkCore.instance.api.txBuilderFinish(
         wallet: wallet,
         recipients: recipients,
         utxos: utxos,
@@ -69,11 +69,11 @@ class MutexBdkWalletAnyDatabase extends RustOpaque {
       : super.sseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: CApi
+    rustArcIncrementStrongCount: BdkCore
         .instance.api.rust_arc_increment_strong_count_MutexBdkWalletAnyDatabase,
-    rustArcDecrementStrongCount: CApi
+    rustArcDecrementStrongCount: BdkCore
         .instance.api.rust_arc_decrement_strong_count_MutexBdkWalletAnyDatabase,
-    rustArcDecrementStrongCountPtr: CApi.instance.api
+    rustArcDecrementStrongCountPtr: BdkCore.instance.api
         .rust_arc_decrement_strong_count_MutexBdkWalletAnyDatabasePtr,
   );
 }
@@ -92,20 +92,20 @@ class BdkWallet {
           {required BdkWallet ptr,
           required AddressIndex addressIndex,
           dynamic hint}) =>
-      CApi.instance.api.bdkWalletGetAddress(
+      BdkCore.instance.api.bdkWalletGetAddress(
           ptr: ptr, addressIndex: addressIndex, hint: hint);
 
   /// Return the balance, meaning the sum of this wallet’s unspent outputs’ values. Note that this method only operates
   /// on the internal database, which first needs to be Wallet.sync manually.
   Future<Balance> getBalance({dynamic hint}) =>
-      CApi.instance.api.bdkWalletGetBalance(that: this, hint: hint);
+      BdkCore.instance.api.bdkWalletGetBalance(that: this, hint: hint);
 
   ///Returns the descriptor used to create addresses for a particular keychain.
   static Future<BdkDescriptor> getDescriptorForKeychain(
           {required BdkWallet ptr,
           required KeychainKind keychain,
           dynamic hint}) =>
-      CApi.instance.api.bdkWalletGetDescriptorForKeychain(
+      BdkCore.instance.api.bdkWalletGetDescriptorForKeychain(
           ptr: ptr, keychain: keychain, hint: hint);
 
   /// Return a derived address using the internal (change) descriptor.
@@ -119,7 +119,7 @@ class BdkWallet {
           {required BdkWallet ptr,
           required AddressIndex addressIndex,
           dynamic hint}) =>
-      CApi.instance.api.bdkWalletGetInternalAddress(
+      BdkCore.instance.api.bdkWalletGetInternalAddress(
           ptr: ptr, addressIndex: addressIndex, hint: hint);
 
   ///get the corresponding PSBT Input for a LocalUtxo
@@ -128,7 +128,7 @@ class BdkWallet {
           required bool onlyWitnessUtxo,
           PsbtSigHashType? sighashType,
           dynamic hint}) =>
-      CApi.instance.api.bdkWalletGetPsbtInput(
+      BdkCore.instance.api.bdkWalletGetPsbtInput(
           that: this,
           utxo: utxo,
           onlyWitnessUtxo: onlyWitnessUtxo,
@@ -137,22 +137,23 @@ class BdkWallet {
 
   /// Return whether or not a script is part of this wallet (either internal or external).
   Future<bool> isMine({required BdkScriptBuf script, dynamic hint}) =>
-      CApi.instance.api.bdkWalletIsMine(that: this, script: script, hint: hint);
+      BdkCore.instance.api
+          .bdkWalletIsMine(that: this, script: script, hint: hint);
 
   /// Return the list of transactions made and received by the wallet. Note that this method only operate on the internal database, which first needs to be [Wallet.sync] manually.
   Future<List<TransactionDetails>> listTransactions(
           {required bool includeRaw, dynamic hint}) =>
-      CApi.instance.api.bdkWalletListTransactions(
+      BdkCore.instance.api.bdkWalletListTransactions(
           that: this, includeRaw: includeRaw, hint: hint);
 
   /// Return the list of unspent outputs of this wallet. Note that this method only operates on the internal database,
   /// which first needs to be Wallet.sync manually.
   Future<List<LocalUtxo>> listUnspent({dynamic hint}) =>
-      CApi.instance.api.bdkWalletListUnspent(that: this, hint: hint);
+      BdkCore.instance.api.bdkWalletListUnspent(that: this, hint: hint);
 
   /// Get the Bitcoin network the wallet is using.
   Future<Network> network({dynamic hint}) =>
-      CApi.instance.api.bdkWalletNetwork(that: this, hint: hint);
+      BdkCore.instance.api.bdkWalletNetwork(that: this, hint: hint);
 
   // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
   static Future<BdkWallet> newInstance(
@@ -161,7 +162,7 @@ class BdkWallet {
           required Network network,
           required DatabaseConfig databaseConfig,
           dynamic hint}) =>
-      CApi.instance.api.bdkWalletNew(
+      BdkCore.instance.api.bdkWalletNew(
           descriptor: descriptor,
           changeDescriptor: changeDescriptor,
           network: network,
@@ -180,7 +181,7 @@ class BdkWallet {
           required BdkPsbt psbt,
           SignOptions? signOptions,
           dynamic hint}) =>
-      CApi.instance.api.bdkWalletSign(
+      BdkCore.instance.api.bdkWalletSign(
           ptr: ptr, psbt: psbt, signOptions: signOptions, hint: hint);
 
   /// Sync the internal database with the blockchain.
@@ -188,7 +189,7 @@ class BdkWallet {
           {required BdkWallet ptr,
           required BdkBlockchain blockchain,
           dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkWalletSync(ptr: ptr, blockchain: blockchain, hint: hint);
 
   @override

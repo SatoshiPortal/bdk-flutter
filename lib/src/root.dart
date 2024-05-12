@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
-import 'package:bdk_flutter/src/utils/utils.dart';
+import 'package:bdk_dart/src/utils/exceptions.dart';
+import 'package:bdk_dart/src/utils/loader.dart';
 
 import 'generated/api/blockchain.dart';
 import 'generated/api/descriptor.dart';
@@ -16,7 +17,7 @@ class Address extends BdkAddress {
   static Future<Address> fromScript(
       {required ScriptBuf script, required Network network}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkAddress.fromScript(script: script, network: network);
       return Address._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -27,7 +28,7 @@ class Address extends BdkAddress {
   static Future<Address> fromString(
       {required String s, required Network network}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkAddress.fromString(address: s, network: network);
       return Address._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -53,7 +54,7 @@ class Blockchain extends BdkBlockchain {
   ///  [Blockchain] constructor
   static Future<Blockchain> create({required BlockchainConfig config}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkBlockchain.newInstance(blockchainConfig: config);
       return Blockchain._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -166,7 +167,7 @@ class DerivationPath extends BdkDerivationPath {
   ///  [DerivationPath] constructor
   static Future<DerivationPath> create({required String path}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDerivationPath.fromString(path: path);
       return DerivationPath._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -183,7 +184,7 @@ class Descriptor extends BdkDescriptor {
   static Future<Descriptor> create(
       {required String descriptor, required Network network}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newInstance(
           descriptor: descriptor, network: network);
       return Descriptor._(
@@ -201,7 +202,7 @@ class Descriptor extends BdkDescriptor {
       required Network network,
       required KeychainKind keychain}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newBip44(
           secretKey: secretKey, network: network, keychainKind: keychain);
       return Descriptor._(
@@ -222,7 +223,7 @@ class Descriptor extends BdkDescriptor {
       required Network network,
       required KeychainKind keychain}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newBip44Public(
           network: network,
           keychainKind: keychain,
@@ -243,7 +244,7 @@ class Descriptor extends BdkDescriptor {
       required Network network,
       required KeychainKind keychain}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newBip49(
           secretKey: secretKey, network: network, keychainKind: keychain);
       return Descriptor._(
@@ -264,7 +265,7 @@ class Descriptor extends BdkDescriptor {
       required Network network,
       required KeychainKind keychain}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newBip49Public(
           network: network,
           keychainKind: keychain,
@@ -285,7 +286,7 @@ class Descriptor extends BdkDescriptor {
       required Network network,
       required KeychainKind keychain}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newBip84(
           secretKey: secretKey, network: network, keychainKind: keychain);
       return Descriptor._(
@@ -306,7 +307,7 @@ class Descriptor extends BdkDescriptor {
       required Network network,
       required KeychainKind keychain}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newBip84Public(
           network: network,
           keychainKind: keychain,
@@ -327,7 +328,7 @@ class Descriptor extends BdkDescriptor {
       required Network network,
       required KeychainKind keychain}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newBip86(
           secretKey: secretKey, network: network, keychainKind: keychain);
       return Descriptor._(
@@ -348,7 +349,7 @@ class Descriptor extends BdkDescriptor {
       required Network network,
       required KeychainKind keychain}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptor.newBip86Public(
           network: network,
           keychainKind: keychain,
@@ -399,7 +400,7 @@ class DescriptorPublicKey extends BdkDescriptorPublicKey {
   /// [DescriptorPublicKey] constructor
   static Future<DescriptorPublicKey> fromString(String publicKey) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptorPublicKey.fromString(publicKey: publicKey);
       return DescriptorPublicKey._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -447,7 +448,7 @@ class DescriptorSecretKey extends BdkDescriptorSecretKey {
   /// [DescriptorSecretKey] constructor
   static Future<DescriptorSecretKey> fromString(String secretKey) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptorSecretKey.fromString(secretKey: secretKey);
       return DescriptorSecretKey._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -461,7 +462,7 @@ class DescriptorSecretKey extends BdkDescriptorSecretKey {
       required Mnemonic mnemonic,
       String? password}) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkDescriptorSecretKey.create(
           network: network, mnemonic: mnemonic, password: password);
       return DescriptorSecretKey._(ptr: res.ptr);
@@ -530,7 +531,7 @@ class Mnemonic extends BdkMnemonic {
   /// [Mnemonic] constructor
   static Future<Mnemonic> create(WordCount wordCount) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkMnemonic.newInstance(wordCount: wordCount);
       return Mnemonic._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -544,7 +545,7 @@ class Mnemonic extends BdkMnemonic {
   /// [Mnemonic] constructor
   static Future<Mnemonic> fromEntropy(List<int> entropy) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkMnemonic.fromEntropy(entropy: entropy);
       return Mnemonic._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -557,7 +558,7 @@ class Mnemonic extends BdkMnemonic {
   /// [Mnemonic] constructor
   static Future<Mnemonic> fromString(String mnemonic) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkMnemonic.fromString(mnemonic: mnemonic);
       return Mnemonic._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -586,7 +587,7 @@ class PartiallySignedTransaction extends BdkPsbt {
   static Future<PartiallySignedTransaction> fromString(
       String psbtBase64) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkPsbt.fromStr(psbtBase64: psbtBase64);
       return PartiallySignedTransaction._(ptr: res.ptr);
     } on BdkError catch (e) {
@@ -673,7 +674,7 @@ class ScriptBuf extends BdkScriptBuf {
   ///Creates a new empty script.
   static Future<ScriptBuf> empty() async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkScriptBuf.empty();
       return ScriptBuf(bytes: res.bytes);
     } on BdkError catch (e) {
@@ -684,7 +685,7 @@ class ScriptBuf extends BdkScriptBuf {
   ///Creates a new empty script with pre-allocated capacity.
   static Future<ScriptBuf> withCapacity(int capacity) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkScriptBuf.withCapacity(capacity: capacity);
       return ScriptBuf(bytes: res.bytes);
     } on BdkError catch (e) {
@@ -695,7 +696,7 @@ class ScriptBuf extends BdkScriptBuf {
   ///Creates a ScriptBuf from a hex string.
   static Future<ScriptBuf> fromHex(String s) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkScriptBuf.fromHex(s: s);
       return ScriptBuf(bytes: res.bytes);
     } on BdkError catch (e) {
@@ -715,7 +716,7 @@ class Transaction extends BdkTransaction {
     required List<int> transactionBytes,
   }) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res =
           await BdkTransaction.fromBytes(transactionBytes: transactionBytes);
       return Transaction._(inner: res.inner);
@@ -952,7 +953,7 @@ class Wallet extends BdkWallet {
     required DatabaseConfig databaseConfig,
   }) async {
     try {
-      await Api.initialize();
+      await LibBdk.init();
       final res = await BdkWallet.newInstance(
         descriptor: descriptor,
         changeDescriptor: changeDescriptor,

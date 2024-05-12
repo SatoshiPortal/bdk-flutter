@@ -20,11 +20,11 @@ class BitcoinBip32DerivationPath extends RustOpaque {
       : super.sseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: CApi.instance.api
+    rustArcIncrementStrongCount: BdkCore.instance.api
         .rust_arc_increment_strong_count_BitcoinBip32DerivationPath,
-    rustArcDecrementStrongCount: CApi.instance.api
+    rustArcDecrementStrongCount: BdkCore.instance.api
         .rust_arc_decrement_strong_count_BitcoinBip32DerivationPath,
-    rustArcDecrementStrongCountPtr: CApi.instance.api
+    rustArcDecrementStrongCountPtr: BdkCore.instance.api
         .rust_arc_decrement_strong_count_BitcoinBip32DerivationPathPtr,
   );
 }
@@ -40,11 +40,11 @@ class KeysBip39Mnemonic extends RustOpaque {
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount:
-        CApi.instance.api.rust_arc_increment_strong_count_KeysBip39Mnemonic,
+        BdkCore.instance.api.rust_arc_increment_strong_count_KeysBip39Mnemonic,
     rustArcDecrementStrongCount:
-        CApi.instance.api.rust_arc_decrement_strong_count_KeysBip39Mnemonic,
-    rustArcDecrementStrongCountPtr:
-        CApi.instance.api.rust_arc_decrement_strong_count_KeysBip39MnemonicPtr,
+        BdkCore.instance.api.rust_arc_decrement_strong_count_KeysBip39Mnemonic,
+    rustArcDecrementStrongCountPtr: BdkCore
+        .instance.api.rust_arc_decrement_strong_count_KeysBip39MnemonicPtr,
   );
 }
 
@@ -57,7 +57,7 @@ class BdkDerivationPath {
 
   static Future<BdkDerivationPath> fromString(
           {required String path, dynamic hint}) =>
-      CApi.instance.api.bdkDerivationPathFromString(path: path, hint: hint);
+      BdkCore.instance.api.bdkDerivationPathFromString(path: path, hint: hint);
 
   @override
   int get hashCode => ptr.hashCode;
@@ -77,26 +77,26 @@ class BdkDescriptorPublicKey {
     required this.ptr,
   });
 
-  Future<String> asString({dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorPublicKeyAsString(that: this, hint: hint);
+  Future<String> asString({dynamic hint}) => BdkCore.instance.api
+      .bdkDescriptorPublicKeyAsString(that: this, hint: hint);
 
   static Future<BdkDescriptorPublicKey> derive(
           {required BdkDescriptorPublicKey ptr,
           required BdkDerivationPath path,
           dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkDescriptorPublicKeyDerive(ptr: ptr, path: path, hint: hint);
 
   static Future<BdkDescriptorPublicKey> extend(
           {required BdkDescriptorPublicKey ptr,
           required BdkDerivationPath path,
           dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkDescriptorPublicKeyExtend(ptr: ptr, path: path, hint: hint);
 
   static Future<BdkDescriptorPublicKey> fromString(
           {required String publicKey, dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkDescriptorPublicKeyFromString(publicKey: publicKey, hint: hint);
 
   @override
@@ -119,40 +119,40 @@ class BdkDescriptorSecretKey {
 
   static Future<BdkDescriptorPublicKey> asPublic(
           {required BdkDescriptorSecretKey ptr, dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorSecretKeyAsPublic(ptr: ptr, hint: hint);
+      BdkCore.instance.api.bdkDescriptorSecretKeyAsPublic(ptr: ptr, hint: hint);
 
-  Future<String> asString({dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorSecretKeyAsString(that: this, hint: hint);
+  Future<String> asString({dynamic hint}) => BdkCore.instance.api
+      .bdkDescriptorSecretKeyAsString(that: this, hint: hint);
 
   static Future<BdkDescriptorSecretKey> create(
           {required Network network,
           required BdkMnemonic mnemonic,
           String? password,
           dynamic hint}) =>
-      CApi.instance.api.bdkDescriptorSecretKeyCreate(
+      BdkCore.instance.api.bdkDescriptorSecretKeyCreate(
           network: network, mnemonic: mnemonic, password: password, hint: hint);
 
   static Future<BdkDescriptorSecretKey> derive(
           {required BdkDescriptorSecretKey ptr,
           required BdkDerivationPath path,
           dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkDescriptorSecretKeyDerive(ptr: ptr, path: path, hint: hint);
 
   static Future<BdkDescriptorSecretKey> extend(
           {required BdkDescriptorSecretKey ptr,
           required BdkDerivationPath path,
           dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkDescriptorSecretKeyExtend(ptr: ptr, path: path, hint: hint);
 
   static Future<BdkDescriptorSecretKey> fromString(
           {required String secretKey, dynamic hint}) =>
-      CApi.instance.api
+      BdkCore.instance.api
           .bdkDescriptorSecretKeyFromString(secretKey: secretKey, hint: hint);
 
   /// Get the private key as bytes.
-  Future<Uint8List> secretBytes({dynamic hint}) => CApi.instance.api
+  Future<Uint8List> secretBytes({dynamic hint}) => BdkCore.instance.api
       .bdkDescriptorSecretKeySecretBytes(that: this, hint: hint);
 
   @override
@@ -175,24 +175,25 @@ class BdkMnemonic {
 
   /// Returns Mnemonic as string
   Future<String> asString({dynamic hint}) =>
-      CApi.instance.api.bdkMnemonicAsString(that: this, hint: hint);
+      BdkCore.instance.api.bdkMnemonicAsString(that: this, hint: hint);
 
   /// Create a new Mnemonic in the specified language from the given entropy.
   /// Entropy must be a multiple of 32 bits (4 bytes) and 128-256 bits in length.
   static Future<BdkMnemonic> fromEntropy(
           {required List<int> entropy, dynamic hint}) =>
-      CApi.instance.api.bdkMnemonicFromEntropy(entropy: entropy, hint: hint);
+      BdkCore.instance.api.bdkMnemonicFromEntropy(entropy: entropy, hint: hint);
 
   /// Parse a Mnemonic with given string
   static Future<BdkMnemonic> fromString(
           {required String mnemonic, dynamic hint}) =>
-      CApi.instance.api.bdkMnemonicFromString(mnemonic: mnemonic, hint: hint);
+      BdkCore.instance.api
+          .bdkMnemonicFromString(mnemonic: mnemonic, hint: hint);
 
   // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
   /// Generates Mnemonic with a random entropy
   static Future<BdkMnemonic> newInstance(
           {required WordCount wordCount, dynamic hint}) =>
-      CApi.instance.api.bdkMnemonicNew(wordCount: wordCount, hint: hint);
+      BdkCore.instance.api.bdkMnemonicNew(wordCount: wordCount, hint: hint);
 
   @override
   int get hashCode => ptr.hashCode;
