@@ -30,7 +30,7 @@ The bdk library aims to be the core building block for Bitcoin Applications of a
 ### Requirements
 
 - Flutter : 3.0 or higher
-- Android minSdkVersion. : API 23 or higher.
+- Android minSdkVersion : API 23 or higher.
 - Deployment target : iOS 12.0 or greater.
 
 ### How to Use
@@ -56,7 +56,7 @@ final descriptorSecretKey = await DescriptorSecretKey.create( network: Network.t
                                                               mnemonic: mnemonic );
 final externalDescriptor = await Descriptor.newBip44( secretKey: descriptorSecretKey,
                                                       network: Network.testnet,
-                                                      keychain: KeychainKind.externalChain );
+                                                      keychain: KeyChainKind.externalChain );
 final internalDescriptor = await Descriptor.newBip44( secretKey: descriptorSecretKey,
                                                       network: Network.testnet,
                                                       keychain: KeyChainKind.internalChain );
@@ -87,7 +87,7 @@ final externalDescriptor = await Descriptor.newBip44( secretKey: descriptorSecre
                                                       network: Network.testnet,
                                                       keychain: KeychainKind.externalChain  );
 final externalPublicDescriptorStr = await externalDescriptor.asString();
-final externalPublicDescriptor = await Descriptor.( descriptor: externalPublicDescriptorStr,
+final externalPublicDescriptor = await Descriptor.create( descriptor: externalPublicDescriptorStr,
                                                     network: Network.testnet);
 ```
 
@@ -129,7 +129,7 @@ debugPrint("=========Outputs=====");
 
 ```
 
-### Create an `internal` and `extarnal` wallet descriptors from derivation path.
+### Create an `internal` and `external` wallet descriptors from derivation path.
 
 ```dart
 import 'package:bdk_flutter/bdk_flutter.dart';
