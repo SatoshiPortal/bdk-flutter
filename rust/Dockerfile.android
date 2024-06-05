@@ -23,10 +23,8 @@ RUN unzip ndk.zip
 
 # Set NDK environment variable
 ENV ANDROID_NDK_HOME=$HOME/android-ndk-r26d
-# Copy the folder from root
-COPY Cargo.lock /app
-COPY Cargo.toml /app
-COPY /src /app
+# Copy the folder from rust
+COPY / /app
 
 # Change directory
 WORKDIR /app
