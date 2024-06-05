@@ -20,9 +20,6 @@ fi
 
 
 
-#add rust target for darwin/macos
-cd src/bdk-flutter/rust
-
 echo "Installing targets"
 
 # Define targets (replace with your actual targets)
@@ -56,7 +53,7 @@ done
 for target in $IOS_TARGETS; do
   # Build for the current target
   echo "Building for target: $target"
-  cargo build --target "$target"
+  cargo build --release --target "$target"
 
   # Check the exit code of cargo build
   if [ $? -ne 0 ]; then
@@ -70,7 +67,7 @@ done
 for target in $MAC_TARGETS; do
   # Build for the current target
   echo "Building for target: $target"
-  cargo build --target "$target"
+  cargo build --release --target "$target"
 
   # Check the exit code of cargo build
   if [ $? -ne 0 ]; then
@@ -78,7 +75,7 @@ for target in $MAC_TARGETS; do
     exit 1
   fi
 done
-cd ../.../../../../
+
 #use lipo to merge the simulator and real version of the library
 DIR_TO_CREATE="lib/darwin/mac"
 
@@ -104,20 +101,29 @@ if [ ! -d "$DIR_TO_CREATE2" ]; then
 else
   return
 fi
-# cp -f src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_flutter.so lib/darwin/mac/libbdk_flutter_x64.so
-# cp -f src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_flutter.so lib/darwin/mac/libbdk_flutter_aarch.so
+# cp -f src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_dart.a lib/darwin/mac/libbdk_flutter_x64.so
+# cp -f src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_dart.a lib/darwin/mac/libbdk_flutter_aarch.so
+
+ Copy MacOS
+cp -f src/bdk-flutter/rust/target/x86_64-apple-darwin/release/libbdk_flutter.a lib/darwin/mac/libbdk_flutter.a
+cp -f src/bdk-flutter/rust/target/aarch64-apple-darwin/release/libbdk_flutter.a lib/darwin/mac/libbdk_flutter.a
+
+#Copy iOS files
+cp -f src/bdk-flutter/rust/target/aarch64-apple-ios/release/libbdk_flutter.a lib/darwin/ios/libbdk_flutter.a
+cp -f src/bdk-flutter/rust/target/x86_64-apple-ios/release/libbdk_flutter.a lib/darwin/ios/libbdk_flutter.a
+cp -f src/bdk-flutter/rust/target/aarch64-apple-ios-sim/release/libbdk_flutter.a lib/darwin/ios/libbdk_flutter.a
+
 
 lipo -create -output $DIR_TO_CREATE2 \
-        src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_flutter.so\
-        src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_flutter.so
+        src/bdk-flutter/rust/target/x86_64-apple-darwin/release/libbdk_flutter.a\
+        src/bdk-flutter/rust/target/aarch64-apple-darwin/release/libbdk_flutter.a
 
 lipo -create -output $DIR_TO_CREATE1 \
-        src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_flutter.so\
-        src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_flutter.so\
-        src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_flutter.so
+      src/bdk-flutter/rust/target/x86_64-apple-ios/release/libbdk_flutter.a\
+      src/bdk-flutter/rust/target/aarch64-apple-ios-sim/release/libbdk_flutter.a
 
 xcodebuild -create-xcframework \
         -library $DIR_TO_CREATE1 \
         -library $DIR_TO_CREATE2 \
-        -library src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_flutter.so \
+        -library src/bdk-flutter/rust/target/aarch64-linux-android/release/libbdk_dart.a \
         -output lib/darwin/rust_bdk_ffi.xcframework
