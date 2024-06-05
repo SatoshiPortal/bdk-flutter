@@ -1,21 +1,65 @@
-#!/bin/bash
-ROOT="target"
-VERSION=$1
-NAME="libbdk"
-LINUX_DIR=$ROOT/$NAME.$VERSION/linux # final binaries stored here
-# aarch64-unknown-linux-gnu \
-# arm-unknown-linux-gnueabi \
-# armv7-unknown-linux-gnueabi \
-# i686-unknown-linux-gnu \
+#!/bin/sh
 
-for TARGET in \
-    x86_64-unknown-linux-gnu 
-    # aarch64-unknown-linux-gnu install using docker image amd-64/rust:slim-bullseye requires aarch64-linux-gnu-gcc
+set -e  # Exit on failure
 
-do
-    rustup target add $TARGET
-    cargo build --release --target=$TARGET
-done
+# Check if docker is installed
 
-mkdir -p $LINUX_DIR/x86_64
-cp $ROOT/x86_64-unknown-linux-gnu/release/libbdkbridge.so $LINUX_DIR/x86_64/
+if [ ! -x "$(command -v docker)" ]; then
+    echo "docker is not installed"
+    echo "installation instructions might be here: https://docs.docker.com/engine/install/"
+    exit 0
+fi
+
+# Function to extract the package version from Cargo.toml
+  # Use grep to find the line containing 'version' in Cargo.toml
+# cd src/bdk-flutter/rust
+# ls
+version_line=$(grep -E '^version = .*' Cargo.toml)
+
+# Extract the version string after the  '='
+if [ ! -z "$version_line" ]; then
+    version=$(echo "$version_line" | cut -d '=' -f2 | tr -d '[:space:]')
+    package_version=$(echo "$version" | sed 's/^"//' | sed 's/"$//')
+else
+    echo "Error: Could not find 'version' in Cargo.toml"
+fi
+
+# cd ../../../
+
+
+# Print the version or handle errors
+if [ ! -z "$package_version" ]; then
+  echo "Package version: $package_version"
+else
+  echo "An error occurred while reading the version."
+  exit 1  
+fi
+
+
+
+# Define target architectures
+
+echo "Starting  $target build..."
+docker build -t build-$target -f Dockerfile.$target .
+echo "Build completed!"
+echo "Running build-$target docker"
+container_id=$(docker run -d build-$target) || fail "Failed to run container"
+current_dir=$(pwd)
+folder_name="lib/$target"
+
+if [ -d "$folder_name" ]; then
+    rm -rf "$folder_name"
+fi
+mkdir "$folder_name"
+
+architecture="x86_64-unknown-linux-gnu"
+
+
+
+full_path="/$current_dir/$folder_name"
+docker cp -a $container_id:"/app/target/$architecture/release/libbdk_dart.so" "$full_path/libbdk_flutter-$package_version.so"
+echo "File copied"
+docker kill $container_id
+echo "build-$target container stoppped"
+
+echo "Build completed! Libraries are in lib/linux * folders."
