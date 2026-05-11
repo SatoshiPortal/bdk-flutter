@@ -21,6 +21,17 @@ generate-bindings:
 	flutter_rust_bridge_codegen generate && dart run build_runner build
 	@echo "[Done ✅]"
 
+## reproduce-darwin: Rebuild macOS/iOS binaries and compare them to signed release assets.
+reproduce-darwin:
+	./reproducible_builds/reproduce-darwin.sh
+
+## reproduce-linux: Rebuild Linux binaries in Docker and compare them to signed release assets.
+reproduce-linux:
+	./reproducible_builds/reproduce-linux-docker.sh
+
+## reproduce-android: Rebuild Android binaries in Docker and compare them to signed release assets.
+reproduce-android:
+	./reproducible_builds/reproduce-android-docker.sh
 
 
 
